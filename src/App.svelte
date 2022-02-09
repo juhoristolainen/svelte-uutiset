@@ -4,16 +4,12 @@
   import Footer from './Footer.svelte';
 
   let newsclass = 'Uutiset';
-
-  let salaisuus = process.env.NEWS_URL;
 </script>
 
 <main>
   <header>
     <Navbar bind:newsclass />
   </header>
-  <!-- <h1>salaisuus: {salaisuus}</h1> -->
-  <h1>salaisuus: {salaisuus}</h1>
   <div class="newslist">
     <Uutiset {newsclass} />
   </div>
