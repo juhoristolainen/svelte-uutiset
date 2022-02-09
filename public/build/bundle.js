@@ -1291,15 +1291,15 @@ var app = (function () {
     	let updating_newsclass;
     	let t0;
     	let h1;
-    	let t2;
+    	let t3;
     	let div;
     	let uutiset;
-    	let t3;
+    	let t4;
     	let footer;
     	let current;
 
     	function navbar_newsclass_binding(value) {
-    		/*navbar_newsclass_binding*/ ctx[1](value);
+    		/*navbar_newsclass_binding*/ ctx[2](value);
     	}
 
     	let navbar_props = {};
@@ -1325,17 +1325,17 @@ var app = (function () {
     			create_component(navbar.$$.fragment);
     			t0 = space();
     			h1 = element("h1");
-    			h1.textContent = "salaisuus";
-    			t2 = space();
+    			h1.textContent = `salaisuus: ${/*salaisuus*/ ctx[1]}`;
+    			t3 = space();
     			div = element("div");
     			create_component(uutiset.$$.fragment);
-    			t3 = space();
+    			t4 = space();
     			create_component(footer.$$.fragment);
-    			add_location(header, file, 11, 2, 225);
-    			add_location(h1, file, 15, 2, 321);
+    			add_location(header, file, 11, 2, 222);
+    			add_location(h1, file, 15, 2, 318);
     			attr_dev(div, "class", "newslist svelte-6jvmoe");
-    			add_location(div, file, 16, 2, 342);
-    			add_location(main, file, 10, 0, 216);
+    			add_location(div, file, 16, 2, 352);
+    			add_location(main, file, 10, 0, 213);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1346,10 +1346,10 @@ var app = (function () {
     			mount_component(navbar, header, null);
     			append_dev(main, t0);
     			append_dev(main, h1);
-    			append_dev(main, t2);
+    			append_dev(main, t3);
     			append_dev(main, div);
     			mount_component(uutiset, div, null);
-    			append_dev(main, t3);
+    			append_dev(main, t4);
     			mount_component(footer, main, null);
     			current = true;
     		},
@@ -1403,6 +1403,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	let newsclass = 'Uutiset';
+    	let salaisuus = process.env.NEWS_URL;
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -1414,17 +1415,24 @@ var app = (function () {
     		$$invalidate(0, newsclass);
     	}
 
-    	$$self.$capture_state = () => ({ Navbar, Uutiset, Footer, newsclass });
+    	$$self.$capture_state = () => ({
+    		Navbar,
+    		Uutiset,
+    		Footer,
+    		newsclass,
+    		salaisuus
+    	});
 
     	$$self.$inject_state = $$props => {
     		if ('newsclass' in $$props) $$invalidate(0, newsclass = $$props.newsclass);
+    		if ('salaisuus' in $$props) $$invalidate(1, salaisuus = $$props.salaisuus);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [newsclass, navbar_newsclass_binding];
+    	return [newsclass, salaisuus, navbar_newsclass_binding];
     }
 
     class App extends SvelteComponentDev {

@@ -5,7 +5,7 @@
 
   let newsclass = 'Uutiset';
 
-  // let salaisuus = process.env.NEWS_URL;
+  let salaisuus = process.env.NEWS_URL;
 </script>
 
 <main>
@@ -13,7 +13,7 @@
     <Navbar bind:newsclass />
   </header>
   <!-- <h1>salaisuus: {salaisuus}</h1> -->
-  <h1>salaisuus</h1>
+  <h1>salaisuus: {salaisuus}</h1>
   <div class="newslist">
     <Uutiset {newsclass} />
   </div>
