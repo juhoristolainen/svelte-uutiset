@@ -24,7 +24,7 @@
   newslist.then(console.log(newslist));
 </script>
 
-<main>
+<div class="news">
   {#await newslist}
     <p>odotellaan</p>
   {:then newslist}
@@ -32,10 +32,10 @@
       <Uutinen {news} />
     {/each}
   {/await}
-</main>
+</div>
 
 <style>
-  main {
+  .news {
     width: 70%;
   }
 </style>

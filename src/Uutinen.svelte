@@ -4,19 +4,17 @@
   const url = `https://iltalehti.fi/${news.category.category_name}/a/${news.article_id}`;
 </script>
 
-<main>
-  <a href={url} target="_blank" rel="noreferrer noopener">
-    <div class="news">
-      <div>
-        <img src={news.main_image_urls.size138} alt="" />
-      </div>
-      <div>
-        <h1>{news.headline}</h1>
-        <p>{news.lead}</p>
-      </div>
+<a href={url} target="_blank" rel="noreferrer noopener">
+  <div class="news">
+    <div>
+      <img src={news.main_image_urls.size138} alt="" />
     </div>
-  </a>
-</main>
+    <div>
+      <h1>{news.headline}</h1>
+      <p>{news.lead}</p>
+    </div>
+  </div>
+</a>
 
 <style>
   p {
