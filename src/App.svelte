@@ -8,9 +8,11 @@
 
 <main>
   <header>
+    <!-- Otetaan komponentista arvo newsclass-muuttujaan -->
     <Navbar bind:newsclass />
   </header>
   <div class="newslist">
+    <!-- Viedään newsclass muuttujan arvo lapsikomponenttiin. -->
     <Uutiset {newsclass} />
   </div>
   <Footer />
